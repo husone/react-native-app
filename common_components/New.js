@@ -8,3 +8,5 @@ class New extends Component{
         );
     }
 }
+
+export default New;
