@@ -1,12 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Platform } from 'react-native';
 import New from "./common_components/New";
+import ComponentIOS from "./common_components/ComponentIOS";
+import ComponentAndroid from "./common_components/ComponentAndroid";
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <New />
+      {
+        Platform.select({
+          ios: () => <ComponentIOS />,
+          android: () => <ComponentAndroid />,
+          default: () => <New />
+        })()
+      }
     </View>
   );
 }
